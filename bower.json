@@ -1,0 +1,10 @@
+{
+  "name": "a-copy-of-flappy-bird",
+  "version": "0.0.0",
+  "authors": [
+    ""
+  ],
+  "dependencies": {
+    "phaser-official": "latest"
+  }
+}
