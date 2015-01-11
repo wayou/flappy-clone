@@ -44,6 +44,13 @@
             //the start button
             this.startBtn = this.game.add.button(this.game.width / 2, 300, 'startButton', this.startClick, this);
             this.startBtn.anchor.setTo(0.5, 0.5);
+
+             //keep the spacebar from propogating up to the browser
+            this.game.input.keyboard.addKeyCapture([Phaser.Keyboard.SPACEBAR]);
+
+            //add keyobard control
+            var startKey = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+            startKey.onDown.add(this.startClick, this);
         },
 
         update: function() {

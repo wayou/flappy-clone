@@ -23,5 +23,16 @@ Bird.prototype.constructor = Bird;
 Bird.prototype.update = function() {
 
     // write your prefab's specific update code here
+    //rotate the bird back
+    if (this.angle < 90) {
+        this.angle += 2.5;
+    }
 
+};
+Bird.prototype.flap = function() {
+    this.body.velocity.y = -400;
+    //rotate the bird
+    this.game.add.tween(this).to({
+        angle: -40
+    }, 100).start();
 };
