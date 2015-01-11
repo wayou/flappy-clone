@@ -52,7 +52,7 @@
         startClick: function() {
             // start button click handler
             // start the 'play' state
-            this.game.state.start('play');
+            this.game.state.start('game');
         }
     };
 
