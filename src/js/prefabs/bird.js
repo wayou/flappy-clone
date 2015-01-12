@@ -15,6 +15,13 @@ var Bird = function(game, x, y) {
     this.animations.add('flap');
     this.animations.play('flap', 12, true);
 
+    //disable gravity until the game is started
+    this.body.allowGravity = false;
+
+    this.alive = false;
+
+    this.flapSound = this.game.add.audio('flap');
+
 };
 
 Bird.prototype = Object.create(Phaser.Sprite.prototype);
@@ -24,12 +31,14 @@ Bird.prototype.update = function() {
 
     // write your prefab's specific update code here
     //rotate the bird back
-    if (this.angle < 90) {
+    if (this.angle < 90 && this.alive) {
         this.angle += 2.5;
     }
 
 };
 Bird.prototype.flap = function() {
+    this.flapSound.play();
+    
     this.body.velocity.y = -400;
     //rotate the bird
     this.game.add.tween(this).to({
